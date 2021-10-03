@@ -1,9 +1,9 @@
-import { createUserWithEmailAndPassword } from "@firebase/auth";
-import { FirebaseError } from "@firebase/util";
 import React from "react";
 import { useForm } from "react-hook-form";
-import AuthPage from "../components/AuthPage";
+import { createUserWithEmailAndPassword } from "@firebase/auth";
+import { FirebaseError } from "@firebase/util";
 import { auth } from "../lib/firebase";
+import AuthPage from "../components/AuthPage";
 
 export default function RegisterPage(): JSX.Element {
   const {
@@ -22,7 +22,7 @@ export default function RegisterPage(): JSX.Element {
   }) => {
     createUserWithEmailAndPassword(auth, email, password)
       .then((userCredential) => {
-        // Signed in
+        // Registered
         const user = userCredential.user;
         console.log("user", user);
       })
